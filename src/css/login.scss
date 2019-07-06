@@ -1,0 +1,137 @@
+    @charset "utf-8";
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .customer-header {
+        background: #f2f2f2;
+        .head_center {
+            width: 998px;
+            height: 67px;
+            margin: 0 auto;
+            border: 0;
+            position: relative;
+            .main-logo {
+                position: static;
+                left: 2px;
+                float: left;
+                img {
+                    margin-left: 4px;
+                    margin-top: 17px;
+                }
+            }
+            .adHeadPicContainer {
+                margin-right: 20px;
+            }
+            .website-name {
+                color: white;
+                font-size: 20px;
+                line-height: 50px;
+                font-family: "arial";
+                padding-top: 14px;
+                .adHeadTitle {
+                    color: #333;
+                    font-size: 18px;
+                    margin-top: -3px;
+                    float: left;
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+    
+    .login-bg {
+        background-color: #081638;
+        .login-center {
+            width: 1130px;
+            margin: 0 auto;
+            zoom: 1;
+            position: relative;
+            background: url('https://hwid1.vmall.com/CAS/up/idmw_rss_36/ads/login_default_bg.png') no-repeat;
+            background-size: cover;
+            .log {
+                width: 400px;
+                height: 500px;
+                background-color: white;
+                position: absolute;
+                top: 30px;
+                right: 0;
+                margin: 30px 0;
+                padding: 0 40px;
+                .log-top {
+                    font-size: 18px;
+                    padding: 10px 0;
+                    display: flex;
+                    justify-content: space-around;
+                }
+                .login {
+                    input {
+                        margin: 20px 0;
+                        width: 400px;
+                        line-height: 46px;
+                        text-align: center;
+                        border: 0;
+                        border-bottom: 1px solid silver
+                    }
+                    .submit {
+                        line-height: 44px;
+                        height: 44px;
+                        font-weight: bold;
+                        font-size: 14px;
+                        background-image: none;
+                        cursor: pointer;
+                        border-radius: 26px;
+                        text-align: center;
+                        background-color: #c70000;
+                        text-decoration: none;
+                        color: #fff;
+                        border-color: #c70000;
+                    }
+                }
+                .log-bottom {
+                    text-align: center;
+                    a {
+                        display: inline-block;
+                        color: #0064cc;
+                    }
+                }
+                .bottom {
+                    position: absolute;
+                    bottom: 0;
+                    text-align: center;
+                    width: 100%;
+                    span {
+                        display: block;
+                        position: relative;
+                        left: -35px;
+                    }
+                    .denglu {
+                        display: flex;
+                        width: 415px;
+                        justify-content: center;
+                        p {
+                            width: 60px;
+                            height: 65px;
+                            border-radius: 50%;
+                        }
+                        .p1 {
+                            background-image: url(../img/third_login.png);
+                            background-repeat: no-repeat;
+                            background-position: 1px 10px;
+                        }
+                        .p2 {
+                            background-image: url(../img/third_login.png);
+                            background-repeat: no-repeat;
+                            background-position: -62px 10px;
+                        }
+                        .p3 {
+                            background-image: url(../img/third_login.png);
+                            background-repeat: no-repeat;
+                            background-position: -128px 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }

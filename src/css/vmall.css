@@ -187,7 +187,7 @@ a:hover {
 @font-face {
     font-family: 'iconfont';
     src: url('../../font/iconfont.eot');
-    src: url('../../font/iconfont.eot?#iefix') format('embedded-opentype'), url('../../font/iconfont.woff') format('woff'), url('../../font/iconfont.ttf') format('truetype'), url('../../font/iconfont.svg#iconfont') format('svg')
+    src: url('../../font/iconfont.eot?#iefix') format('embedded-opentype'), url('../../font/iconfont.woff') format('woff'), url('../../font/iconfont.ttf') format('truetype')
 }
 
 .iconfont {
@@ -3449,7 +3449,6 @@ input.form-input-text::-ms-clear {
     width: 40px;
     height: 40px;
     margin-right: 15px;
-    background: url("../../images/echannel/icon/icon01.svg?20170620") no-repeat
 }
 
 .slogan .s1 i {
@@ -4127,7 +4126,6 @@ input.form-input-text::-ms-clear {
     display: block;
     position: absolute;
     z-index: 2;
-    background: url("../../images/echannel/icon/icon01.svg?20170620") no-repeat
 }
 
 .user-level p {
@@ -4229,7 +4227,6 @@ input.form-input-text::-ms-clear {
     position: relative;
     top: 6px;
     margin-right: 4px;
-    background: url("../../images/echannel/icon/icon01.svg?20170620") no-repeat
 }
 
 .i-mall-prompt .user-info .user-info-detail .icon-realname:before {
@@ -5476,10 +5473,11 @@ input.form-input-text::-ms-clear {
     color: #333
 }
 
-.button-top-banner-min,
+
+/* .button-top-banner-min,
 .button-top-banner-close {
-    background: url("../../images/echannel/icon/icon01.svg?20170620") no-repeat
-}
+ 
+} */
 
 .top-banner a:hover {
     text-decoration: none
@@ -5646,8 +5644,8 @@ input.form-input-text::-ms-clear {
     height: 10px;
     text-align: center;
     position: absolute;
-    bottom: 30px;
-    left: 50%;
+    bottom: 90px;
+    left: 90%;
     width: 300px;
     margin-left: -150px
 }
@@ -9240,4 +9238,41 @@ li:hover .follow-panel,
 
 .toast-error.toast-hide {
     opacity: 0
+}
+
+.loutinav {
+    width: 80px;
+    position: fixed;
+    top: 82px;
+    right: 0;
+    border: 1px solid #ddd;
+    z-index: 1000;
+    display: none;
+    /* background-color: rgba(109, 104, 104, 0.133); */
+}
+
+.loutinav ul li {
+    width: 80px;
+    line-height: 30px;
+    border-bottom: 1px dotted #DDDDDD;
+    list-style: none;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    padding: 5px 0;
+    color: white;
+    background: #918888;
+}
+
+.loutinav ul li.active span {
+    background: #c00;
+    color: #fff;
+    display: block;
+}
+
+.loutinav ul li:hover span {
+    background: #c00;
+    color: #fff;
+    display: block;
 }
