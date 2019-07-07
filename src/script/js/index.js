@@ -37,7 +37,7 @@
 
 // }(jQuery);
 
-// !function(){
+// !function(){ 
 // 	//lunbo效果
 
 // }(jQuery);
@@ -62,20 +62,44 @@
     const $bankuai = $('.cebiannav')
     const $louti = $('.loutinav li')
     $(window).on('scroll', function() {
-        let $scrolltop = $(window).scrollTop();
-        // console.log($scrolltop)
-        if ($scrolltop >= 750) {
-            $cebiannav.show()
-        } else {
-            $cebiannav.hide()
-        }
+            let $scrolltop = $(window).scrollTop();
+            // console.log($scrolltop)
+            if ($scrolltop >= 750) {
+                $cebiannav.show()
+            } else {
+                $cebiannav.hide()
+            }
 
-        $bankuai.each(function(i, elm) {
-            console.log(elm, $bankuai.eq(i).offset().top)
+            $bankuai.each(function(i, elm) {
+                // console.log(elm, $bankuai.eq(i).offset().top)
                 // console.log($bankuai.eq(i).offset().top);
+                let $bankuaitop = $bankuai.eq(i).offset().top + $(elm).height() / 3
+                if ($bankuaitop > $scrolltop) {
+                    $louti.not('.last').removeClass('active');
+                    $louti.not('.last').eq(i).addClass('active');
+                    return false
+                }
+
+            })
 
         })
-
+        // 点击没有个侧边导航
+    $louti.not('.last').on('click', function() {
+            $(this).addClass('active').siblings().removeClass('active');
+            let $bankuaitop1 = $bankuai.eq($(this).index()).offset().top;
+            $('html,body').animate({
+                scrollTop: $bankuaitop1
+            });
+        })
+        // 返回顶部导航
+    $last.on('click', function() {
+        $('html,body').animate({
+            scrollTop: 0
+        });
     })
+
+
+}();
+! function() {
 
 }()

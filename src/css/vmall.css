@@ -5589,6 +5589,14 @@ input.form-input-text::-ms-clear {
     overflow: hidden
 }
 
+.ec-slider ul li {
+    border-radius: 0 0 60px 60px;
+}
+
+.ec-slider ul .showpic {
+    opacity: 1
+}
+
 .ec-slider-list {
     overflow: hidden;
     position: absolute
@@ -5600,7 +5608,8 @@ input.form-input-text::-ms-clear {
 
 .ec-slider-item {
     float: left;
-    width: 100%
+    width: 100%;
+    opacity: 0;
 }
 
 .ec-slider-item-img {
