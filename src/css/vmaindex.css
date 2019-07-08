@@ -1905,7 +1905,7 @@
 
 .category .category-item.active .category-item-bg {
     background: #fff;
-    box-shadow: 0 0 46px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 46px rgba(0, 0, 0, 0.1); */
     position: relative
 }
 
@@ -1998,8 +1998,12 @@
     overflow: hidden
 }
 
-.category .category-panels.none {
+.category-panels {
     display: none
+}
+
+.category .category-panels.active {
+    display: block;
 }
 
 .category .category-panels.category-panels-1 {

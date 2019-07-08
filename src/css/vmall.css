@@ -7818,23 +7818,26 @@ li:hover .follow-panel,
 
 .button-slider-prev,
 .button-slider-next {
+    width: 50px;
+    height: 50px;
+    background: #ccc;
+    border-radius: 50%;
     position: absolute;
-    z-index: 3;
-    width: 17px;
-    height: 28px;
-    top: 50%;
-    margin-top: -14px;
-    border-radius: 2px
+    opacity: 0.6;
+    text-align: center;
+    font-size: 22px;
+    color: white;
+    line-height: 50px;
 }
 
 .button-slider-prev {
-    left: 8px;
-    background-position: -17px -24px
+    left: 260px;
+    top: 226px;
 }
 
 .button-slider-next {
-    right: 8px;
-    background-position: 4px -24px
+    right: 75px;
+    top: 226px;
 }
 
 .button-slider-prev-high,
