@@ -196,22 +196,35 @@
 
                 <div class="order-list-detail">
                     <!-- 与详情页匹配 -->
-                    <div class="order-main clearfix ">
+                    <!-- <div class="order-main clearfix " style="position: relative;"> -->
+                    <!-- <div class="cart-checkbox" style="float: left;">
+                            <input type="checkbox" checked="" name="" id="" value="">
+                        </div>
                         <a style="cursor:default" ahref="/product/10086779543890.html#2601010116501" class="p-img" target="_blank">
                             <img alt="荣耀20 PRO DXO全球第二高分 4800万全焦段AI四摄 双光学防抖 麒麟980全网通版8GB+128GB 幻夜星河" src="https://res.vmallres.com/pimages//product/6901443315338/142_142_1559306427457mp.png">
-
                         </a>
-                        <ul class="">
+                        <ul class="ul">
                             <li>
                                 <a style="cursor:default" ahref="/product/10086779543890.html#2601010116501" class="p-name" title="荣耀20 PRO DXO全球第二高分 4800万全焦段AI四摄 双光学防抖 麒麟980全网通版8GB+128GB 幻夜星河" target="_blank" seed="item-name">荣耀20 PRO DXO全球第二高分 4800万全焦段AI四摄 双光学防抖 麒麟980全网通版8GB+128GB 幻夜星河</a>
                                 <input type="hidden" class="skuCodeQuanClass" value="1" id="2601010116501">
                             </li>
-                            <li>x1</li>
+                            <li>
+                                <div class="quantity-form">
+                                    <a class="quantity-down" href="javascript:void(0)">-</a>
+                                    <input type="text" value="1">
+                                    <a class="quantity-add" href="javascript:void(0)">+</a>
+                                </div>
+                            </li>
+
                             <li class="p-price">
                                 ¥&nbsp;3199.00
                             </li>
                         </ul>
-                    </div>
+                        <div id="dlete">
+                            <a href="javascript:;">删除</a>
+                        </div> -->
+
+                    <!-- </div> -->
                     <!-- 与详情页匹配结束 -->
                     <div class="order-parts clearfix">
                         <h2>赠品</h2>
@@ -263,32 +276,7 @@
 
                 </div>
 
-                <div class="order-list-info">
-                    <!--20170717-订单表单-发票信息-start -->
-                    <div class="order-invoice">
-                        <div class="h"><span>发票信息</span><em>注：如果商品由第三方卖家销售，发票内容由其卖家决定，发票由卖家开具并寄出</em></div>
-                        <div class="b">
-                            <em id="invoice-info-typeVMALL-HUAWEIDEVICE">电子普通发票</em>
-                            <span id="invoice-info-titleVMALL-HUAWEIDEVICE">个人</span>
-                            <a id="invoiceEditVMALL-HUAWEIDEVICE" class="invoiceEdit" href="javascript:;" onclick="ec.order.invoice.popup.edit('VMALL-HUAWEIDEVICE');">修改</a>
-                        </div>
-                    </div>
-                    <input type="hidden" value="" id="routingTagID">
-                    <div class="order-discount">
-                        <div class="h"><span>优惠与抵用</span><em>仅适用于自营实物商品</em></div>
-                        <form autocomplete="off" method="post">
-                            <div class="order-coupon">
-                                <a href="javascript:;" class="red" id="coupon-use-link">使用优惠券</a>
-                            </div>
-                            <div class="order-discount-choose">
-                                <i class="icon-choose-normal icon-choose-disabled" id="huaban-checkbox" onclick="ec.order.huaban.toggle()" checked="false"></i>
-                                <p><span id="huaban_des">花瓣余额&nbsp;0</span><span id="huaban-count"></span><span id="canUserPetal">，不足100不可使用</span></p>
-                                <a href="javascript:;" onclick="ec.order.openPopWindow('flower-rule-tpl','order-flower-rule-box',700,435,'花瓣使用规则');">花瓣使用规则</a>
-                            </div>
-                            <div class="order-discount-tip hide" id="order-discount-tip">注：积分与花瓣合计抵扣不能超过自营商品应付款的30%</div>
-                    </div>
 
-                </div>
             </div>
 
             <div class="order-total">
@@ -772,6 +760,9 @@
         </div>
     </div>
     <!-- footer end -->
+    <script src="./script/js/jquery.js"></script>
+    <script src="./script/js/cookie.js"></script>
+    <script src="./script/js/cart.js"></script>
 </body>
 
 </html>

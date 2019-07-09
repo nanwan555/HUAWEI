@@ -101,14 +101,35 @@ a:hover {
 
 .product-gallery .product-gallery-img {
     width: 450px;
-    height: 385px
+    height: 450px;
+    border: 1px solid #000;
 }
 
-.product-gallery .product-gallery-img img {
+
+/* .product-gallery .product-gallery-img img {
     display: block;
     vertical-align: top;
     width: 350px;
     height: 350px;
+} */
+
+#wrap {
+    width: 450px;
+    height: 450px;
+    border: 1px solid #ccc;
+}
+
+#wrap a {
+    width: 100%;
+    height: 100%;
+}
+
+#wrap a img {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+    top: 92px;
 }
 
 .xf {
@@ -139,22 +160,29 @@ a:hover {
     z-index: 100;
     border: 1px solid #ccc;
     overflow: hidden;
-    /* background: white; */
+    background: white;
     visibility: hidden;
 }
 
 .df a img {
     display: block;
-    width: 450px;
-    height: 450px;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    position: relative;
 }
 
-.product-gallery .product-gallery-back,
-.product-gallery .product-gallery-forward {
-    position: absolute;
-    top: 0;
+.product-gallery-back,
+.product-gallery-forward {
     width: 30px;
-    height: 68px
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 17px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
 }
 
 .product-gallery .product-gallery-back {
@@ -163,16 +191,6 @@ a:hover {
 
 .product-gallery .product-gallery-forward {
     right: 0
-}
-
-.product-gallery .product-gallery-back:before,
-.product-gallery .product-gallery-forward:before {
-    content: "";
-    width: 30px;
-    height: 30px;
-    display: block;
-    margin-top: 19px;
-    background: url("../../images/echannel/icon/icon50.png") no-repeat -48px -29px
 }
 
 .product-gallery .product-gallery-forward:before {
@@ -1420,7 +1438,6 @@ a:hover {
     border: 0;
     font-size: 18px;
     text-align: center;
-    border-right: 1px solid #e2e2e2
 }
 
 .product-operation .product-stock .product-stock-btn {

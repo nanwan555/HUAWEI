@@ -28,19 +28,18 @@
             <span>已有华为账号</span>
             <a href="javascript:;" class="">登录></a>
         </div>
-
-        <form class="reg-list" action="">
+        <form class="reg-list" action="http://127.0.0.1:8080/HUAWEI/php/registor.php" method="POST">
             <label>用户名：</label><br>
-            <input type="text" value="" name="" placeholder="请输入用户名"><br>
+            <input type="text" value="" name="username" id="username" placeholder="请输入用户名"><span id="panduan"></span><br>
             <label>邮  箱：</label><br>
-            <input type="email" value="" name="" placeholder="请输入邮箱"><br>
+            <input type="email" value="" name="email" id="email" placeholder="请输入邮箱"><span id="emailpd"></span><br>
             <label>密  码：</label><br>
-            <input type="text" value="" name="" placeholder="请输入密码"><br>
-            <input type="text" value="" name="" placeholder="请确认密码"><br>
-            <input type="submit" value="立即注册" class="submit">
+            <input type="text" value="" name="password" id="password" placeholder="请输入密码"><span id="paspd"></span><br>
+            <input type="submit" value="立即注册" id="submit" name="submit">
         </form>
-
     </div>
+    <script src="./script/js/jquery.js"></script>
+    <script src="./script/js/registor.js"></script>
 </body>
 
 </html>

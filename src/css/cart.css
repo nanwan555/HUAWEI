@@ -4548,7 +4548,6 @@ a {
     float: left;
     width: 100px;
     height: 100px;
-    margin-right: 19px
 }
 
 .order-list .p-img img {
@@ -4668,6 +4667,28 @@ a {
 .order-main.disabled a {
     color: #a4a4a4;
     cursor: default
+}
+
+.quantity-form {
+    border: 1px solid #666;
+}
+
+.quantity-form a {
+    display: inline-block;
+    height: 20px;
+    line-height: 18px;
+    width: 22px;
+    text-align: center;
+    color: #666;
+}
+
+.quantity-form input {
+    width: 44px;
+    height: 22px;
+    text-align: center;
+    border: 0;
+    border-right: 1px solid #666;
+    border-left: 1px solid #666;
 }
 
 .order-parts h2 {
@@ -6822,6 +6843,16 @@ input.form-input-text {
 
 .service-shopping-explain .clearfix {
     padding-top: 28px
+}
+
+#dlete {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+
+#dlete a {
+    color: red
 }
 
 .service-shopping-explain .title {

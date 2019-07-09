@@ -257,40 +257,38 @@
 
 
     <div class="product clearfix">
-        <div class="left">
+        <div class="left prev">
             <!-- 20170518-商品图片-start -->
             <div class="product-gallery" style="top: 80px;">
                 <div class="relative">
-                    <div class="product-gallery-img" id="pic-container">
-                        <div id="wrap" style="position:relative;">
-                            <a id="product-img" href="https://res.vmallres.com/pimages//product/6901443315338/800_800_1559306427457mp.png" class="cloud-zoom" rel="adjustX: 10, adjustY:0, zoomWidth:400, zoomHeight:400" style="position: relative; display: block;">
-                                <img src="https://res.vmallres.com/pimages//product/6901443315338/428_428_1559306427457mp.png" alt="荣耀20 PRO" style="display: block;">
-                            </a>
-                            <div class="xf"></div>
-                        </div>
+                    <div id="wrap" style="position:relative;">
+                        <a id="product-img" href="https://res.vmallres.com/pimages//product/6901443315338/800_800_1559306427457mp.png" class="cloud-zoom" rel="adjustX: 10, adjustY:0, zoomWidth:400, zoomHeight:400" style="position: relative; display: block;">
+                            <img src="" id="smallpic" alt="荣耀20 PRO" style="display: block;">
+                        </a>
+                        <div class="xf"></div>
                     </div>
                 </div>
                 <div class="product-gallery-nav">
                     <a id="product-img" href="#" class="cloud-zoom" rel="adjustX: 10, adjustY:0, zoomWidth:400, zoomHeight:400">
                     </a>
-                    <a href="javascript:;" class="product-gallery-back"></a>
+                    <a href="javascript:;" class="product-gallery-back">&lt;</a>
                     <!--不可点击添加class="disabled"-->
-                    <div class="product-gallery-thumbs">
+                    <div class="product-gallery-thumbs" id="onclick">
                         <ul id="pro-gallerys" style="left: 0px;">
                         </ul>
                     </div>
-                    <a href="javascript:;" class="product-gallery-forward"></a>
+                    <a href="javascript:;" class="product-gallery-forward">&gt;</a>
                 </div>
                 <div class="df">
                     <a id="product-img" href="https://res.vmallres.com/pimages//product/6901443315338/800_800_1559306427457mp.png" class="cloud-zoom" rel="adjustX: 10, adjustY:0, zoomWidth:400, zoomHeight:400" style="position: relative; display: block;">
-                        <img src="https://res.vmallres.com/pimages//product/6901443315338/428_428_1559306427457mp.png" alt="荣耀20 PRO" style="display: block;">
+                        <img id="bpic" src="" alt="荣耀20 PRO" style="display: block;">
                     </a>
-                    <div class="bpic" style="background-image: none; z-index: 999; position: absolute; width: 450px; height: 450px; left: 0px; top: 0px; cursor: move;"></div>
+                    <div style="background-image: none; z-index: 999; position: absolute; width: 450px; height: 450px; left: 0px; top: 0px; cursor: move;"></div>
                 </div>
             </div>
             <!-- 20170518-商品图片-end -->
         </div>
-        <div class="right relative">
+        <div class="right relative next">
             <div id="pro-add-success-mask" style="visibility:hidden;font-size:18px;width:348px;position: absolute;"></div>
             <div id="cart-tips" class="pro-popup-area hide">
                 <div class="b">
@@ -310,55 +308,7 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 20130913-弹出层-购买延保-start -->
-            <div id="popup-extend" class="pro-popup-area hide">
-                <div class="h">
-                    <a href="javascript:;" class="pro-popup-close" title="关闭">关闭</a>
-                </div>
-
-                <div class="b">
-                    <div class="pro-extend-area">
-                        <h3>购买延保</h3>
-                        <div class="pro-extend-search">
-                            <div class="form-edit-area">
-                                <form action="javascript:;" id="checkExtend-ID" onsubmit="return ec.product.checkExtend()">
-                                    <input type="hidden" id="extendSkuId">
-                                    <label style="display: block; position: absolute; cursor: text; float: left; z-index: 2; color: rgb(153, 153, 153);" class="text vam" for="extend-text">输入IMEI/SN/MEID信息</label><input type="text" class="text vam" id="extend-text"
-                                        maxlength="50" style="z-index: 1;"><input class="button-style-4 button-extend-search vam" type="submit" value="查看可购买的延保">
-                                    <input name="CsrfToken" type="hidden" value="043452A2210E8877CF73230765F6C3C55093415D807BC0FB"></form>
-                            </div>
-                        </div>
-
-                        <div class="pro-extend-result hide" id="pro-extend-result-id">
-                            <div id="extend-msg-succuss" class="hide"></div>
-                            <div id="extend-msg-error" class="hide"></div>
-                        </div>
-
-                        <div class="pro-extend-tips">温馨提示：IMEI/SN/MEID号可在产品外包装上找到，可拆卸电池的手机可将电池拆掉电池下面的标签上可以看到，手机上输入*#06#也可以显示。</div>
-                        <div class="pro-extend-button">
-                            <a id="button-extend" class="button-style-disabled-1 button-go-extend-checkout-disabled" href="javascript:;" title="提交订单"><span>提交订单</span></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
             <!-- 20130913-弹出层-购买延保-end -->
-
-
-            <!--弹出层-提示信息 -->
-            <div id="popup-tips" class="pro-popup-area hide">
-                <div class="h">
-                    <a href="javascript:;" class="pro-popup-close" title="关闭" onclick="$('#popup-tips').hide()"><span>关闭</span></a>
-                </div>
-
-                <div class="b">
-                    <div class="pro-add-error">
-                        <div class="pro-add-error-msg" id="popup-tips-msg">非常抱歉！该商品不能单独销售！</div>
-                        <div class="pro-add-error-button"><a class="button-style-1 button-par-define" href="javascript:;" title="知道了">知道了</a></div>
-                    </div>
-                </div>
-            </div>
 
             <!-- 20170518-商品简介-start -->
             <div class="product-property clearfix relative" style="min-height: 462px; height: auto; padding-bottom: 104px;">
@@ -519,20 +469,7 @@
                                 </ul>
                             </div>
                         </dl>
-                        <dl class="product-choose clearfix  hide" id="bundlePackage"><label>选择套餐</label>
-                            <div class="product-choose-detail  relative" id="bundlePackageSelect">
-                                <ul>
-                                    <li class="attr3 attr6 attr9 attr12 attr15 selected" data-attrname="套餐" data-attrcode="323374" data-attrid="3,6,9,12,15" data-skuid="10086883304313,10086333691030,10086141958003,10086163219229,10086733154195">
-                                        <div class="sku">
-                                            <a href="javascript:;" title="官方标配">
-                                                <p><span>官方标配</span></p>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div id="giftPackageList" class="hide"></div>
-                            </div>
-                        </dl>
+
                         <dl class="product-choose clearfix" id="package_dl"><label>选择套餐</label>
                             <div class="product-choose-detail relative" id="packageSelect">
                                 <ul>
@@ -568,19 +505,6 @@
                                 <div id="packageList" class="hide"></div>
                             </div>
                         </dl>
-                    </div>
-                    <!--联通合约机套餐-->
-                    <div id="contractLst" class="hide">
-                        <dl class="product-choose clearfix">
-                            <label>合约机</label>
-                            <div class="product-choose-detail">
-                                <ul id="contractList-ol">
-                                </ul>
-                            </div>
-                        </dl>
-                        <form action="/contract/choose-{id}" id="contractForm" class="hide">
-                            <input type="hidden" value="" id="gifts" name="gifts">
-                            <input name="CsrfToken" type="hidden" value="043452A2210E8877CF73230765F6C3C55093415D807BC0FB"></form>
                     </div>
 
                     <!-- 20170518-商品简介-保障服务-start -->
@@ -718,31 +642,9 @@
                                 </li>
                             </ul>
 
-
-
-
-
-
                         </div>
                     </div>
-                    <!-- 20181026-商品简介-分期免息-end -->
 
-
-                    <!-- 20170518-商品简介-物流现货-start -->
-                    <div class="product-pulldown clearfix hide">
-                        <label>物流售后</label>
-                        <div class="product-pulldown-main relative">
-                            <!--鼠标悬浮按钮的图标span选择后 class="product-pulldown-main relative" 改为 class="product-pulldown-main product-pulldown-main-show relative"-->
-                            <a href="#" class="product-pulldown-btn">江苏省&gt;南京市&gt;玄武区<span></span></a>
-                            <div class="product-pulldown-detail">
-                                <div class="product-pulldown-detailmain">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 20170518-商品简介-物流现货-end -->
-
-                    <!-- 推荐-start -->
                     <div id="Recommend" class="clearfix">
                         <label>推荐</label>
                         <div class="product-choose-relation">
@@ -763,40 +665,22 @@
                                 <div id="package-selected" class="inline">&nbsp;/&nbsp;单品</div>
                             </div>
                         </div>
-                        <!-- 20170518-商品简介-已选择商品-end -->
-
-                        <!-- 20170518-商品简介-提示-end -->
-                        <div id="product-tips" class="product-tips hide" style="display: none;"></div>
-                        <!-- 20170518-商品简介-提示-end -->
-
-                        <!-- 20170518-商品简介-提交操作-start -->
                         <div id="product-operation" class="product-operation relative" style="display: block;">
-                            <div class="clearfix">
-                                <!-- 20170518-商品简介-购买数量-start -->
+                            <div class="clearfix" style="    width: 500px;margin: 0 auto;">
                                 <div class="product-stock" id="pro-quantity-area">
                                     <input id="pro-quantity" type="text" class="product-stock-text" placeholder="1" value="1">
-                                    <p class="product-stock-btn"><a id="pro-quantity-plus" href="javascript:;">+</a><a id="pro-quantity-minus" href="javascript:;" class="disabled">−</a></p>
+                                    <!-- <p class="product-stock-btn"><a id="pro-quantity-plus" href="javascript:;">+</a><a id="pro-quantity-minus" href="javascript:;" class="disabled">−</a></p> -->
                                 </div>
-                                <div class="product-stock hide" id="pro-quantity-area-nochange" style="display: none;">
-                                    <input type="text" class="product-stock-text" placeholder="1" value="1" disabled="disabled">
-                                    <p class="product-stock-btn"><a href="javascript:;" class="disabled">+</a><a href="javascript:;" class="disabled">−</a></p>
-                                </div>
-                                <!-- 20170518-商品简介-购买数量-end -->
-
-
                                 <div class="product-buttonmain">
-                                    <!-- 20170518-商品简介-按钮-start -->
-                                    <div id="pro-operation" class="product-button clearfix" style="visibility: visible;"><a href="javascript:;" class="product-button01"><span>加入购物车</span></a><a href="javascript:;" onclick="ec.product.orderNow()" class="product-button02"><span>立即下单</span></a></div>
-                                    <!-- 20170518-商品简介-按钮-end -->
-                                    <!-- 20170518-商品简介-协议-start -->
+                                    <div id="pro-operation" class="product-button clearfix" style="visibility: visible;">
+                                        <a id="btn" href="#" class="product-button01">加入购物车</a>
+                                        <!-- <a href="javascript:;" class="product-button02"><span>立即下单</span></a> -->
+                                    </div>
                                     <div class="product-agreement hide" id="product-deposit-agreement-area" style="display: none;">
                                         <input type="checkbox" id="pro-agreement-area-check" checked="">
-                                        <span>同意<a href="javascript:;" onclick="ec.product.showDepositAgreement()">订金支付协议</a></span>
+                                        <span>同意<a href="javascript:;" >订金支付协议</a></span>
                                     </div>
-                                    <!-- 20170518-商品简介-协议-end -->
-                                    <!-- 20180212-商品简介-游客购买-start -->
 
-                                    <!-- 20180212-商品简介-游客购买-end -->
                                 </div>
                             </div>
 
@@ -1254,6 +1138,7 @@
         </div>
     </div>
     <script src="./script/js/jquery.js"></script>
+    <script src="./script/js/cookie.js"></script>
     <script src="./script/js/details.js"></script>
 </body>
 
