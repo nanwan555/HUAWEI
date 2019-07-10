@@ -34,7 +34,7 @@
         var response = JSON.parse(data)
         $('#pro-name').html(response.desc)
         $('#pro-price b').html(response.price)
-        console.log(response.id)
+            // console.log(response.id)
             // console.log($('#product-img img').attr('sid', response.id))
         var arr = response.pic.split(',');
         $('#product-img img').attr('src', arr[0])
@@ -48,6 +48,7 @@
         });
     })
 }(jQuery);
+// 放大镜
 ! function() {
     // $('.xf').width($('#wrap').width() * $('.df').width() / $('#bpic').width());
     // $('.xf').height($('#wrap').height() * $('.df').height() / $('#bpic').height());
@@ -139,3 +140,17 @@
         location.href = 'cart.html'
     })
 }()
+// 加减添加购物车
+// ;
+// ! function($) {
+//     const $add = $('#pro-quantity-plus')
+//     const $down = $('#pro-quantity-minus')
+//     const $zhi = $('#pro-quantity')
+//     $add.on('click', function() {
+//         var $number = $zhi.attr('placeholder')
+//         console.log($number.toNumber())
+//         $number++
+//         $zhi.html($number)
+//         console.log($number)
+//     })
+// }(jQuery)

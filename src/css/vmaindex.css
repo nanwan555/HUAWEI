@@ -3067,20 +3067,10 @@
     border-radius: 8px 0 0 8px
 }
 
-.index-channel-floor .goods-rolling .grid-btn.btn-next:before {
-    content: "\e61d";
-    left: 2px
-}
-
 .index-channel-floor .goods-rolling .grid-btn.btn-prev {
     margin-top: 0;
     left: 6px;
     border-radius: 0 8px 8px 0
-}
-
-.index-channel-floor .goods-rolling .grid-btn.btn-prev:before {
-    content: "\e61f";
-    right: 2px
 }
 
 .index-channel-floor .goods-rolling .grid-btn.disabled {
@@ -3170,4 +3160,11 @@
 
 .index-channel-floor .home-banner-slideshow .ec-slider-nav span.current {
     background: #fff
+}
+
+.b .goods-rolling .btn-prev,
+.b .goods-rolling .btn-next {
+    font-size: 20px;
+    text-align: center;
+    line-height: 72px;
 }

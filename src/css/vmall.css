@@ -5349,7 +5349,9 @@ input.form-input-text::-ms-clear {
 
 .goods-rolling .grid-list {
     width: 3488px;
-    min-width: 1200px
+    min-width: 1200px;
+    position: absolute;
+    left: -1210px;
 }
 
 .goods-rolling .grid-items {

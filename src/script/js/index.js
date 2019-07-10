@@ -1,51 +1,3 @@
-// ;!function($){
-// 	//banner数据
-// 	$.ajax({
-// 		url:'php/banner.php',
-// 		dataType:'json'
-// 	}).done(function(bannerdata){
-// 		$.each(bannerdata,function(index,value){
-// 			var $bannerstr='<ul>';
-
-// 		});
-// 	});
-
-// 	//lunbo数据
-// 	$.ajax({
-// 		url:'php/banner.php',
-// 		dataType:'json'
-// 	}).done(function(bannerdata){
-// 		$.each(bannerdata,function(index,value){
-// 			var $bannerstr='<ul>';
-
-// 		});
-// 	});
-// 	//tab切换数据
-// 	$.ajax({
-// 		url:'php/banner.php',
-// 		dataType:'json'
-// 	}).done(function(bannerdata){
-// 		$.each(bannerdata,function(index,value){
-// 			var $bannerstr='<ul>';
-
-// 		});
-// 	});
-// }(jQuery);
-
-// !function(){
-// 	//banner效果
-
-// }(jQuery);
-
-// !function(){ 
-// 	//lunbo效果
-
-// }(jQuery);
-
-// !function(){
-// 	//小效果
-
-// }(jQuery);
 ;
 ! function() {
     $.ajax({
@@ -217,8 +169,68 @@
     const $content = $('.category-panels')
     $tab.hover(function() {
         $content.eq($(this).index()).addClass('active')
+        $content.eq($(this).index()).parent().css('box-shadow', 0)
+        $content.eq($(this).index()).css('background', 'white'),
+            $content.eq($(this).index()).css('background', 'white')
     }, function() {
         $content.eq($(this).index()).removeClass('active')
     })
 
-}()
+}();
+! function($) {
+    const $lb = $('#goodsRecommend-recommend');
+    const $ul = $('#goodsRecommend-recommend ul');
+    console.log($ul)
+    const $pdiv = $('#goodsRecommend-recommend ul .cl');
+    console.log($pdiv)
+    const $picli = $('#goodsRecommend-recommend ul div li');
+    const $first = $pdiv.first().clone();
+    const $last = $pdiv.last().clone();
+    $ul.append($first)
+    $ul.prepend($last)
+    const $rightbtn = $('.btn-next');
+    const $leftbtn = $('.btn-prev');
+    var $len = $pdiv.width()
+    $len = $picli.width() * 5 //五张图的宽
+    console.log($len) //1210
+    var $num = 1
+
+    $rightbtn.on('click', function() {
+        $num++
+        let $width = $len * $num
+        var $liwidth = $picli.length * $picli.width()
+        console.log($width)
+        if ($width > 7260) {
+            console.log(987)
+
+            $width = 0;
+            $num = 1;
+            $ul.css('left', 1210)
+        }
+        $ul.animate({
+            'left': -$width + 'px'
+        }, 200)
+    })
+
+
+
+    $leftbtn.on('click', function() {
+        $num++
+        alert(987)
+        let $width = $len * $num
+        var $liwidth = $picli.length * $picli.width()
+        console.log($width)
+        if ($width < 0) {
+            console.log(987)
+
+            $width = $len;
+            $num = 0;
+            $ul.css('left', -1210)
+        }
+        $ul.animate({
+            'left': $width + 'px'
+        }, 200)
+    })
+
+
+}(jQuery)

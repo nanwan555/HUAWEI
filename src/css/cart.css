@@ -4646,6 +4646,13 @@ a {
     font-size: 14px
 }
 
+#zj {
+    width: 80px;
+    position: absolute;
+    right: 94px;
+    bottom: 10px;
+}
+
 .order-main ul {
     margin-top: 7px
 }
@@ -4673,7 +4680,16 @@ a {
     border: 1px solid #666;
 }
 
-.quantity-form a {
+.quantity-form p {
+    display: inline-block;
+    height: 20px;
+    line-height: 18px;
+    width: 22px;
+    text-align: center;
+    color: #666;
+}
+
+.quantity-form h6 {
     display: inline-block;
     height: 20px;
     line-height: 18px;
@@ -4830,6 +4846,16 @@ a {
     border-bottom: 1px solid #eaeaea;
     min-height: 102px;
     padding-top: 28px
+}
+
+.order-total .order-total-info .return {
+    background: red;
+    text-align: center;
+    width: 150px;
+    position: relative;
+    top: 25px;
+    right: -80px;
+    line-height: 50px;
 }
 
 .order-total .order-total-info span {

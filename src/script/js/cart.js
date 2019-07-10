@@ -26,24 +26,24 @@
                             <a style="cursor:default" ahref="/product/10086779543890.html#2601010116501" class="p-name" target="_blank" seed="item-name">${value.detail}</a>
                             <input type="hidden" class="skuCodeQuanClass" value="1" id="2601010116501">
                         </li>
-                        <li>
-                            <div class="quantity-form">
-                                <a class="quantity-down" href="javascript:void(0)">-</a>
-                                <input type="text" value="${num}">
-                                <a class="quantity-add" href="javascript:void(0)">+</a>
-                            </div>
-                        </li>
+                        <li>x${num}</li>
                         <li class="p-price">
                             ¥&nbsp;${value.price}
                         </li>
                     </ul>
+                    <div id="zj">
+                    <span>&nbsp;<b></b><span>
+                    </div>
                     <div id="dlete" >
                         <a href="javascript:;" del="${sid}" id="ele">删除</a>
                     </div>
                    </div>
                 `
                     $itemlist.prepend(str)
+                    const $z = $('#zj')
+                    console.log($z)
                     var $del = $('#dlete')
+                        // console.log($('.quantity-form input').attr("value"))
                     $del.on('click', 'a', function() {
                         $(this).parent().parent().remove()
                         var $ele = $(this).attr('del')
@@ -63,8 +63,6 @@
                             let index1 = arrnum.indexOf(value)
                             arrnum.splice('index', 1)
                             setcookie('cookienum', arrnum, 20)
-
-
                         }
 
                         function setcookie(key, value, day) {
@@ -73,11 +71,45 @@
                             document.cookie = key + '=' + encodeURI(value) + ';expires=' + date;
                         }
                     })
+                    var $zongjia = $('#order-price-VMALL-HUAWEIDEVICE')
+                    console.log($zongjia)
+                        // console.log($add)
+
                 }
             });
         })
 
     }
+
+    function goodslist(sid, num) {
+        $.ajax({
+            url: '../php/taobaodata.php', //获取所有的接口数据
+            dataType: 'json'
+        }).done(function(data) {
+            $.each(data, function(index, value) {
+                if (id == value.sid) { //遍历判断sid和传入的sid是否相同，方便将那条数据设置到渲染的商品列表中。 确定到底渲染那条数据。
+                    var $clonebox = $('.goods-item:hidden').clone(true, true); //对隐藏的结构进行克隆
+                    $clonebox.find('.goods-pic').find('img').attr('src', value.url); //添加图片地址
+                    $clonebox.find('.goods-pic').find('img').attr('sid', value.sid); //添加图片id
+                    $clonebox.find('.goods-d-info').find('a').html(value.titile); //添加商品的标题
+                    $clonebox.find('.b-price').find('strong').html(value.price);
+                    $clonebox.find('.quantity-form').find('input').val(count); //计算总价
+                    //计算每个商品的价格。
+                    $clonebox.find('.b-sum').find('strong').html((value.price * count).toFixed(2)); //
+                    $clonebox.css('display', 'block'); //克隆隐藏的元素显示出来
+                    $('.item-list').append($clonebox);
+                    priceall(); //计算总价的
+                }
+            });
+        })
+    }
+
+
+
+
+
+
+
     if (getcookie('cookiesid') && getcookie('cookienum')) {
         let arrsid = getcookie('cookiesid').split(',')
         let arrnum = getcookie('cookienum').split(',')
@@ -85,4 +117,4 @@
             goodslist(arrsid[i], arrnum[i]);
         }
     }
-}()
+}();

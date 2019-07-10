@@ -1442,7 +1442,8 @@ a:hover {
 
 .product-operation .product-stock .product-stock-btn {
     width: 21px;
-    float: left
+    float: left;
+    border-left: 1px solid #ccc;
 }
 
 .product-operation .product-stock .product-stock-btn a {
