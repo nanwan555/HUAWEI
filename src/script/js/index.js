@@ -1,5 +1,12 @@
 ;
 ! function() {
+    $(function() { //和拼接的元素放在一起。
+        $("img.lazy").lazyload({
+            effect: "fadeIn" //图片显示方式
+        });
+    });
+}();
+! function() {
     $.ajax({
         url: "http://127.0.0.1:8080/HUAWEI/php/sy.php",
         dataType: "json",
@@ -47,7 +54,7 @@
                 <a class="thumb" href="details.html?sid=${elm.id}" target="_blank">
                     <div class="grid-info">
                         <p class="grid-img">
-                            <img alt="【新品】荣耀MagicBook 2019 锐龙版 14英寸轻薄笔记本电脑 Ryzen 5 3500U 8GB 256GB（冰河银）" src="${elm.pic}">
+                            <img src="${elm.pic}">
                         </p>
                     </div>
                     <div class="grid-title">${elm.title}</div>
@@ -115,6 +122,7 @@
         });
     })
 }();
+//幻灯片
 ! function() {
     const $stop = $('#index_slider')
     const $pics = $('#index_slider ul li');
@@ -155,82 +163,52 @@
     })
     timer = setInterval(function() {
         $right.click();
-    }, 4000);
+    }, 3000);
     $stop.hover(function() {
         clearInterval(timer)
     }, function() {
         timer = setInterval(function() {
             $right.click();
-        }, 4000);
+        }, 3000);
     })
 }();
+// 侧遍切换
 ! function() {
     const $tab = $('.category-list li');
     const $content = $('.category-panels')
     $tab.hover(function() {
         $content.eq($(this).index()).addClass('active')
-        $content.eq($(this).index()).parent().css('box-shadow', 0)
-        $content.eq($(this).index()).css('background', 'white'),
-            $content.eq($(this).index()).css('background', 'white')
+        $(this).parent().css('box-shadow', 0)
+        $(this).css('background', 'white')
+        console.log($(this))
     }, function() {
         $content.eq($(this).index()).removeClass('active')
+        $(this).css('background', 'rgba(255, 255, 255, 0.95)')
     })
-
 }();
+
+// 小轮播
 ! function($) {
-    const $lb = $('#goodsRecommend-recommend');
     const $ul = $('#goodsRecommend-recommend ul');
-    console.log($ul)
-    const $pdiv = $('#goodsRecommend-recommend ul .cl');
-    console.log($pdiv)
-    const $picli = $('#goodsRecommend-recommend ul div li');
-    const $first = $pdiv.first().clone();
-    const $last = $pdiv.last().clone();
-    $ul.append($first)
-    $ul.prepend($last)
+    const $picli = $('#goodsRecommend-recommend ul li');
     const $rightbtn = $('.btn-next');
     const $leftbtn = $('.btn-prev');
-    var $len = $pdiv.width()
-    $len = $picli.width() * 5 //五张图的宽
-    console.log($len) //1210
-    var $num = 1
-
+    var $num = 5
     $rightbtn.on('click', function() {
-        $num++
-        let $width = $len * $num
-        var $liwidth = $picli.length * $picli.width()
-        console.log($width)
-        if ($width > 7260) {
-            console.log(987)
-
-            $width = 0;
-            $num = 1;
-            $ul.css('left', 1210)
+        if ($picli.length > $num && $num < $picli.length) {
+            $num++
+            $ul.animate({
+                left: -($num - 5) * $picli.eq(0).innerWidth()
+            })
         }
-        $ul.animate({
-            'left': -$width + 'px'
-        }, 200)
     })
-
-
-
     $leftbtn.on('click', function() {
-        $num++
-        alert(987)
-        let $width = $len * $num
-        var $liwidth = $picli.length * $picli.width()
-        console.log($width)
-        if ($width < 0) {
-            console.log(987)
-
-            $width = $len;
-            $num = 0;
-            $ul.css('left', -1210)
+        if ($num > 5) {
+            $num--
+            $ul.animate({
+                left: -($num - 5) * $picli.eq(0).innerWidth()
+            })
         }
-        $ul.animate({
-            'left': $width + 'px'
-        }, 200)
     })
 
-
-}(jQuery)
+}(jQuery);

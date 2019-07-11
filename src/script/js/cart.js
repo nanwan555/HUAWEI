@@ -9,14 +9,13 @@
             dataType: "json",
         }).done(function(data) {
             $.each(data, function(index, value) {
-                // console.log(value)
                 var arr = value.pic.split(',');
                 if (sid === value.id) {
                     var str = '';
                     str = `
                     <div class="order-main clearfix " style="position: relative;">
-                    <div class="cart-checkbox" style="float: left;">
-                        <input type="checkbox" checked="" name="" id="" value="">
+                    <div class="cart-checkbox" style="float: left;" checked>
+                        <input type="radio" name="qx" id="${sid}" value="" >
                     </div>
                     <a style="cursor:default" ahref="/product/10086779543890.html#2601010116501" class="p-img" target="_blank">
                         <img alt="荣耀20 PRO DXO全球第二高分 4800万全焦段AI四摄 双光学防抖 麒麟980全网通版8GB+128GB 幻夜星河" src="${arr[0]}">
@@ -24,11 +23,15 @@
                     <ul class="">
                         <li>
                             <a style="cursor:default" ahref="/product/10086779543890.html#2601010116501" class="p-name" target="_blank" seed="item-name">${value.detail}</a>
-                            <input type="hidden" class="skuCodeQuanClass" value="1" id="2601010116501">
+                        </li> 
+                        <li>
+                        <input type="text"  min="1" max="99" style="width:62px;" id="put" placeholder="输入想要数量" style="width:80px;">
                         </li>
-                        <li>x${num}</li>
-                        <li class="p-price">
-                            ¥&nbsp;${value.price}
+                        <li class="p-price" style="color:red">
+                            单价:￥${value.price}
+                        </li>
+                        <li class="everyprice">
+                        总价￥：${value.price}
                         </li>
                     </ul>
                     <div id="zj">
@@ -40,24 +43,45 @@
                    </div>
                 `
                     $itemlist.prepend(str)
-                    const $z = $('#zj')
-                    console.log($z)
+                        // 输入添加数量点击选项框计算
+                    var $num = $('#put');
+                    var $sum = $('.everyprice');
+                    $num.on('keyup', function() {
+                        var $num1 = this.value;
+                        var $price = $(this).parent().siblings('.p-price').html().split('￥')[1];
+                        var $sum1 = $num1 * $price;
+                        $(this).parent().siblings('.everyprice').html("总价￥:" + $sum1)
+                    });
+                    var $inp = $('.cart-checkbox input');
+                    var $zj = $('#order-price-VMALL-HUAWEIDEVICE');
+                    $inp.on('click', function() {
+                        var $isCheck = $(this).prop('checked');
+                        var $sum2 = $(this).parent().siblings('ul').find('li').last().html().split(':')[1];
+                        if ($isCheck) {
+                            $zj.html(function(idex, oldvalue) {
+                                return 1 * oldvalue + $sum2 * 1;
+                            })
+                        } else {
+                            $zj.html(function(idex, oldvalue) {
+                                return 1 * oldvalue - $sum2 * 1;
+                            })
+                        }
+                    });
+                    // var $jiesuan = $zj.html()
+                    // console.log($jiesuan)
+                    $('#payableTotal').html($zj)
+                        // 删除添加到购物车的的数据
                     var $del = $('#dlete')
-                        // console.log($('.quantity-form input').attr("value"))
                     $del.on('click', 'a', function() {
                         $(this).parent().parent().remove()
                         var $ele = $(this).attr('del')
-                            // console.log($ele)
                         $(this).parent().remove()
-                            // console.log(getcookie('cookiesid'), getcookie('cookiesum'))
                         var $ele = $(this).attr('del')
                         console.log($ele)
                         if (getcookie('cookiesid') && getcookie('cookienum')) {
                             let arrsid = getcookie('cookiesid').split(',')
                             let arrnum = getcookie('cookienum').split(',')
                             let index = arrsid.indexOf($ele)
-                                // console.log(index)
-                                // console.log(arrsid)
                             arrsid.splice(index, 1)
                             setcookie('cookiesid', arrsid, 20)
                             let index1 = arrnum.indexOf(value)
@@ -71,44 +95,14 @@
                             document.cookie = key + '=' + encodeURI(value) + ';expires=' + date;
                         }
                     })
-                    var $zongjia = $('#order-price-VMALL-HUAWEIDEVICE')
-                    console.log($zongjia)
-                        // console.log($add)
+
+
 
                 }
             });
         })
 
     }
-
-    function goodslist(sid, num) {
-        $.ajax({
-            url: '../php/taobaodata.php', //获取所有的接口数据
-            dataType: 'json'
-        }).done(function(data) {
-            $.each(data, function(index, value) {
-                if (id == value.sid) { //遍历判断sid和传入的sid是否相同，方便将那条数据设置到渲染的商品列表中。 确定到底渲染那条数据。
-                    var $clonebox = $('.goods-item:hidden').clone(true, true); //对隐藏的结构进行克隆
-                    $clonebox.find('.goods-pic').find('img').attr('src', value.url); //添加图片地址
-                    $clonebox.find('.goods-pic').find('img').attr('sid', value.sid); //添加图片id
-                    $clonebox.find('.goods-d-info').find('a').html(value.titile); //添加商品的标题
-                    $clonebox.find('.b-price').find('strong').html(value.price);
-                    $clonebox.find('.quantity-form').find('input').val(count); //计算总价
-                    //计算每个商品的价格。
-                    $clonebox.find('.b-sum').find('strong').html((value.price * count).toFixed(2)); //
-                    $clonebox.css('display', 'block'); //克隆隐藏的元素显示出来
-                    $('.item-list').append($clonebox);
-                    priceall(); //计算总价的
-                }
-            });
-        })
-    }
-
-
-
-
-
-
 
     if (getcookie('cookiesid') && getcookie('cookienum')) {
         let arrsid = getcookie('cookiesid').split(',')
@@ -117,4 +111,30 @@
             goodslist(arrsid[i], arrnum[i]);
         }
     }
-}();
+}();;
+! function() {
+    const $checkoutSubmit = $('#checkoutSubmit');
+    $checkoutSubmit.on('click', function() {
+        $(".bg-model").fadeTo(300, 1)
+    })
+    $(".bg-model-ok").click(function() {　　
+        $(".bg-model").hide();　　 //显示窗体的滚动条
+        　　
+        $("body").css({
+            "overflow": "visible"
+        });
+    }).hover(function() {　　
+        $(this).css({
+            "backgroundColor": "#8CC8C8"
+        });
+    }, function() {　　
+        $(this).css({
+            "backgroundColor": "#8CD4E6"
+        });
+    });
+
+    const $tuichu = $('.tuichu')
+    $tuichu.on('click', function() {
+        $(".bg-model").css('display', 'none')
+    })
+}()

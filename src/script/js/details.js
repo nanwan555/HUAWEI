@@ -122,10 +122,7 @@
 
     $('#btn').on('click', function() {
         cookiehave();
-        // console.log($('.next').prev())
         let $picid = $(this).parents('.right').prev().find('#smallpic').attr('sid')
-            // console.log($picid)
-            // console.log($('#pro-quantity').val())
         if ($.inArray($picid, arrsid) != -1) {
             var num = parseInt(arrnum[$.inArray($picid, arrsid)]) + parseInt($('#pro-quantity').val());
             arrnum[$.inArray($picid, arrsid)] = num;
@@ -140,17 +137,3 @@
         location.href = 'cart.html'
     })
 }()
-// 加减添加购物车
-// ;
-// ! function($) {
-//     const $add = $('#pro-quantity-plus')
-//     const $down = $('#pro-quantity-minus')
-//     const $zhi = $('#pro-quantity')
-//     $add.on('click', function() {
-//         var $number = $zhi.attr('placeholder')
-//         console.log($number.toNumber())
-//         $number++
-//         $zhi.html($number)
-//         console.log($number)
-//     })
-// }(jQuery)

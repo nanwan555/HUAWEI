@@ -2721,7 +2721,6 @@
 
 .index-channel-floor .channel-more a:after {
     display: inline-block;
-    content: "\e60a";
     font-family: "iconfont"!important;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
