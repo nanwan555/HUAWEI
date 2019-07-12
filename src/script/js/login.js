@@ -22,7 +22,7 @@
                     $password.val()
                 } else {
                     addCookie('UserName', $username, 10);
-                    location.href = 'http://127.0.0.1:8080/HUAWEI/src/sy.html';
+                    location.href = 'http://127.0.0.1:8080/HUAWEI/src/';
                 }
             }
         })
