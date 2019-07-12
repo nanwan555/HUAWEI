@@ -15,7 +15,7 @@
                     str = `
                     <div class="order-main clearfix " style="position: relative;">
                     <div class="cart-checkbox" style="float: left;" checked>
-                        <input type="radio" name="qx" id="${sid}" value="" >
+                        <input type="checkbox" name="" id="${sid}" value="">
                     </div>
                     <a style="cursor:default" ahref="/product/10086779543890.html#2601010116501" class="p-img" target="_blank">
                         <img alt="荣耀20 PRO DXO全球第二高分 4800万全焦段AI四摄 双光学防抖 麒麟980全网通版8GB+128GB 幻夜星河" src="${arr[0]}">
@@ -25,7 +25,7 @@
                             <a style="cursor:default" ahref="/product/10086779543890.html#2601010116501" class="p-name" target="_blank" seed="item-name">${value.detail}</a>
                         </li> 
                         <li>
-                        <input type="text"  min="1" max="99" style="width:62px;" id="put" placeholder="输入想要数量" style="width:80px;">
+                        <input type="text"  min="1" max="99" id="put" value="" placeholder="输入想要数量" style="width:80px;">
                         </li>
                         <li class="p-price" style="color:red">
                             单价:￥${value.price}
@@ -67,9 +67,26 @@
                             })
                         }
                     });
-                    // var $jiesuan = $zj.html()
-                    // console.log($jiesuan)
                     $('#payableTotal').html($zj)
+
+                    // 全选按钮
+                    const $chek = $('#chek');
+                    // console.log($chek);
+                    $chek.on('click', function() {
+                        if ($chek.prop('checked')) {
+                            $inp.prop('checked', true)
+                        } else {
+                            $inp.prop('checked', false)
+                            $('#payableTotal').html(0)
+                        }
+                    })
+                    $inp.on('click', function() {
+                            if ($inp.size === $("input:checked").length) {
+                                $chek.prop('checked', true)
+                            } else {
+                                $chek.prop('checked', false)
+                            }
+                        })
                         // 删除添加到购物车的的数据
                     var $del = $('#dlete')
                     $del.on('click', 'a', function() {
@@ -111,7 +128,8 @@
             goodslist(arrsid[i], arrnum[i]);
         }
     }
-}();;
+}();
+// 弹出支付环境
 ! function() {
     const $checkoutSubmit = $('#checkoutSubmit');
     $checkoutSubmit.on('click', function() {

@@ -4976,6 +4976,16 @@ a {
     background-color: #fff;
 }
 
+.bg-model .content p {
+    width: 100%;
+    height: 90%
+}
+
+.bg-model .content p img {
+    width: 100%;
+    height: 100%
+}
+
 .bg-model .content .tuichu {
     background: #860909;
     color: #fff;

@@ -1,28 +1,19 @@
 ;
-! function() {
-    $(function() { //和拼接的元素放在一起。
-        $("img.lazy").lazyload({
-            effect: "fadeIn" //图片显示方式
-        });
-    });
-}();
+//手机板块
 ! function() {
     $.ajax({
         url: "http://127.0.0.1:8080/HUAWEI/php/sy.php",
         dataType: "json",
     }).done(function(data) {
         var $html = ' <ul class="grid-list clearfix ">';
-        // console.log(data);
         $.each(data, function(i, elm) {
-            // console.log(elm.pic)
             var arr = elm.pic.split(',');
-            // console.log(arr);
             $html += `
                 <li class="grid-items" style="width:227px">
                     <a class="thumb" href="details.html?sid=${elm.id}" target="_blank">
                         <div class="grid-info">
                             <p class="grid-img">
-                                  <img alt="荣耀Play 全网通 6GB+128GB 极光蓝 GT游戏加速 AI芯片 全面屏游戏手机 双卡双待" src="${arr[0]}">
+                                  <img alt="荣耀Play 全网通 6GB+128GB 极光蓝 GT游戏加速 AI芯片 全面屏游戏手机 双卡双待" class="lazy" data-original="${arr[0]}">
                             </p>
                         </div>
                         <div class="grid-title">${elm.title}</div>
@@ -38,23 +29,27 @@
         $html += '</ul>';
         // $('.goodslist').html($html);
         $('#list').html($html)
+        $(function() { //和拼接的元素放在一起。
+            $("img.lazy").lazyload({
+                effect: "fadeIn" //图片显示方式
+            });
+        });
     });
-}();;
+}();
+//电脑板块
 ! function() {
     $.ajax({
         url: "http://127.0.0.1:8080/HUAWEI/php/sy1.php",
         dataType: "json",
     }).done(function(data) {
         var $html = '<ul class="grid-list clearfix ">';
-        // console.log(data);
         $.each(data, function(i, elm) {
-            // console.log(elm.pic)
             $html += `
                 <li class="grid-items">
                 <a class="thumb" href="details.html?sid=${elm.id}" target="_blank">
                     <div class="grid-info">
                         <p class="grid-img">
-                            <img src="${elm.pic}">
+                            <img call="lazy" src="${elm.pic}">
                         </p>
                     </div>
                     <div class="grid-title">${elm.title}</div>
@@ -69,16 +64,22 @@
         });
         $html += '</ul>';
         $('#dn').html($html)
+        $(function() { //和拼接的元素放在一起。
+            $("img.lazy").lazyload({
+                effect: "fadeIn" //图片显示方式
+            });
+        });
     });
 }();
+//顶部图片关闭
 ! function($) {
-
     const $close = $('.button-top-banner-close')
         // console.log($close)
     $close.on('click', function() {
         $(this).parent().empty()
     })
 }(jQuery);
+// 楼梯效果
 ! function() {
     const $cebiannav = $('.loutinav');
     const $last = $('.last')
@@ -163,13 +164,13 @@
     })
     timer = setInterval(function() {
         $right.click();
-    }, 3000);
+    }, 2000);
     $stop.hover(function() {
         clearInterval(timer)
     }, function() {
         timer = setInterval(function() {
             $right.click();
-        }, 3000);
+        }, 2000);
     })
 }();
 // 侧遍切换
@@ -186,14 +187,13 @@
         $(this).css('background', 'rgba(255, 255, 255, 0.95)')
     })
 }();
-
 // 小轮播
 ! function($) {
     const $ul = $('#goodsRecommend-recommend ul');
     const $picli = $('#goodsRecommend-recommend ul li');
     const $rightbtn = $('.btn-next');
     const $leftbtn = $('.btn-prev');
-    var $num = 5
+    var $num = 5 //有5张图片
     $rightbtn.on('click', function() {
         if ($picli.length > $num && $num < $picli.length) {
             $num++
