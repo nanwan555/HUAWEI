@@ -1,6 +1,6 @@
 ;
+//渲染购物车
 ! function() {
-
     var $itemlist = $('.order-list-detail')
 
     function goodslist(sid, num) {
@@ -20,7 +20,7 @@
                     <a style="cursor:default" ahref="/product/10086779543890.html#2601010116501" class="p-img" target="_blank">
                         <img alt="荣耀20 PRO DXO全球第二高分 4800万全焦段AI四摄 双光学防抖 麒麟980全网通版8GB+128GB 幻夜星河" src="${arr[0]}">
                     </a>
-                    <ul class="">
+                    <ul class="box">
                         <li>
                             <a style="cursor:default" ahref="/product/10086779543890.html#2601010116501" class="p-name" target="_blank" seed="item-name">${value.detail}</a>
                         </li> 
@@ -31,7 +31,7 @@
                             单价:￥${value.price}
                         </li>
                         <li class="everyprice">
-                        总价￥：${value.price}
+                        总价￥：<i> ${value.price} </i>
                         </li>
                     </ul>
                     <div id="zj">
@@ -50,26 +50,11 @@
                         var $num1 = this.value;
                         var $price = $(this).parent().siblings('.p-price').html().split('￥')[1];
                         var $sum1 = $num1 * $price;
-                        $(this).parent().siblings('.everyprice').html("总价￥:" + $sum1)
+                        $(this).parents('.order-main ').find('.everyprice i').html($sum1);
+                        allprice();
                     });
-                    var $inp = $('.cart-checkbox input');
-                    var $zj = $('#order-price-VMALL-HUAWEIDEVICE');
-                    $inp.on('click', function() {
-                        var $isCheck = $(this).prop('checked');
-                        var $sum2 = $(this).parent().siblings('ul').find('li').last().html().split(':')[1];
-                        if ($isCheck) {
-                            $zj.html(function(idex, oldvalue) {
-                                return 1 * oldvalue + $sum2 * 1;
-                            })
-                        } else {
-                            $zj.html(function(idex, oldvalue) {
-                                return 1 * oldvalue - $sum2 * 1;
-                            })
-                        }
-                    });
-                    $('#payableTotal').html($zj)
-
-                    // 全选按钮
+                    var $inp = $('.cart-checkbox input')
+                        // 全选按钮
                     const $chek = $('#chek');
                     // console.log($chek);
                     $chek.on('click', function() {
@@ -79,6 +64,7 @@
                             $inp.prop('checked', false)
                             $('#payableTotal').html(0)
                         }
+                        allprice();
                     })
                     $inp.on('click', function() {
                             if ($inp.size === $("input:checked").length) {
@@ -86,6 +72,8 @@
                             } else {
                                 $chek.prop('checked', false)
                             }
+
+                            allprice();
                         })
                         // 删除添加到购物车的的数据
                     var $del = $('#dlete')
@@ -112,15 +100,11 @@
                             document.cookie = key + '=' + encodeURI(value) + ';expires=' + date;
                         }
                     })
-
-
-
                 }
             });
+            allprice();
         })
-
     }
-
     if (getcookie('cookiesid') && getcookie('cookienum')) {
         let arrsid = getcookie('cookiesid').split(',')
         let arrnum = getcookie('cookienum').split(',')
@@ -128,8 +112,19 @@
             goodslist(arrsid[i], arrnum[i]);
         }
     }
+    //求和
+    function allprice() {
+        let $allsum = 0;
+        $('.order-main').each(function() {
+            if ($(this).find('.cart-checkbox').find('input').is(':checked')) {
+                $allsum += parseFloat($(this).find('.everyprice i').html());
+            }
+            console.log(parseFloat($(this).find('.everyprice i').html()));
+        });
+        $('#order-price-VMALL-HUAWEIDEVICE').html($allsum);
+    }
 }();
-// 弹出支付环境
+// 点击立即支付弹出支付环境
 ! function() {
     const $checkoutSubmit = $('#checkoutSubmit');
     $checkoutSubmit.on('click', function() {
@@ -150,7 +145,6 @@
             "backgroundColor": "#8CD4E6"
         });
     });
-
     const $tuichu = $('.tuichu')
     $tuichu.on('click', function() {
         $(".bg-model").css('display', 'none')
